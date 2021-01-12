@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class = "spage">
+    <form id = "form" method="POST" action="login">
+        {% csrf_token %} 
+        <div class = "fields">
+            <label for = "email">Email Id</label>
+            <input class = "text" type = "email" id = "email" placeholder = "example@gmail.com">
+        </div>
+        <div class = "fields">
+            <label for = "password">Password</label>
+            <input class = "text" type = "password" id = "password">
+        </div>
+        <button type="submit">Login</button>
+        <p>New User? Create an account  :<a href="/signup">  Create</a></p>
+    </form>
+
+</div>
+
+{% endblock content %}

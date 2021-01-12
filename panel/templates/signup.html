@@ -2,7 +2,8 @@
 
 {% block content %}
 <div class = "spage">
-    <form class = "form">
+    <form id = "form" method="POST" action="signupform">
+        {% csrf_token %}
         <div class = "fields">
             <label for = "firstname">First Name</label>
             <input class = "text" type = "text" id = "firstname">
@@ -16,13 +17,14 @@
             <input class = "text" type = "email" id = "email" placeholder = "example@gmail.com">
         </div>
         <div class = "fields">
-            <label for = "password">First Name</label>
-            <input class = "text" type = "password" id = "password">
+            <label for = "phone">Phone No</label>
+            <input class = "text" type = "text" id = "phone">
         </div>
         <div class = "fields">
-            <label for = "firstname">First Name</label>
-            <input class = "text" type = "text" id = "firstname">
+            <label for = "password">Set Password</label>
+            <input class = "text" type = "password" id = "password">
         </div>
+        <button type="submit">Signup</button>
     </form>
 
 </div>
