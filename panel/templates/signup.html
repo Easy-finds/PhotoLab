@@ -1,32 +1,38 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class = "spage">
-    <form id = "form" method="POST" action="signupform">
+<div class="container">
+    <div class="col-lg-4 mx-auto border rounded mt-4">
+      <form action="" method="POST">
         {% csrf_token %}
-        <div class = "fields">
-            <label for = "firstname">First Name</label>
-            <input class = "text" type = "text" id = "firstname">
+        <div class="alert alert-light"><h3>Create An Account</h3></div>
+        {% if error %}
+        <div class="alert alert-danger">{{error}}</div>
+        {% endif %}
+        <div class="form-group">
+          <label for="">First Name</label>
+          <input type="text" name="name" id="" value="{{values.name}}" class="form-control form-control-sm" placeholder="">
         </div>
-        <div class = "fields">
-            <label for = "lastname">Last Name</label>
-            <input class = "text" type = "text" id = "lastname">
-        </div>
-        <div class = "fields">
-            <label for = "email">Email Id</label>
-            <input class = "text" type = "email" id = "email" placeholder = "example@gmail.com">
-        </div>
-        <div class = "fields">
-            <label for = "phone">Phone No</label>
-            <input class = "text" type = "text" id = "phone">
-        </div>
-        <div class = "fields">
-            <label for = "password">Set Password</label>
-            <input class = "text" type = "password" id = "password">
-        </div>
-        <button type="submit">Signup</button>
-    </form>
-
+        <div class="form-group">
+            <label for="">Last Name</label>
+            <input type="text" name="sirname" id="" value="{{values.sirname}}" class="form-control form-control-sm" placeholder="">
+          </div>
+          <div class="form-group">
+            <label for="">Mobile</label>
+            <input type="number" name="mobile" id="" value="{{values.mobile}}" class="form-control form-control-sm" placeholder="">
+          </div>
+          <div class="form-group">
+            <label for="">Email</label>
+            <input type="email" name="email" id="" value="{{values.email}}" class="form-control form-control-sm" placeholder="">
+          </div>
+          <div class="form-group">
+            <label for="">Password</label>
+            <input type="password" name="password" id="" class="form-control form-control-sm" placeholder="">
+          </div>
+          <div class="form-group">
+            <input type="submit" value="SUBMIT" class="btn btn-info btn-sm">
+          </div>
+      </form>
+    </div>
 </div>
-
-{% endblock content %}
+{% endblock %}

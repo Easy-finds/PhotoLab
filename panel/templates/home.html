@@ -1,6 +1,22 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Homepage</h1>
-
+{% if request.session.customer %}
+<form action="#" method="post">
+    {% csrf_token %}
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label" for = "gallery">Gallery Name: </label>
+        <input type="text" name="gallery_name" class="form-control col" id = "gallery">
+    </div>
+    <button class="btn btn-primary" type="submit">Create New Gallery</button>
+</form>
+<form method="post" action="gallery" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label" for="exampleFormControlFile1">Example file input</label>
+        <input type="file" name="images" class="form-control-file" id="exampleFormControlFile1" multiple/ >
+    </div>
+    <button class="btn btn-primary" type="submit">Upload Images</button>
+</form>
+{% endif %}
 {% endblock content %}

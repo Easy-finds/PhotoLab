@@ -28,3 +28,13 @@ class Customer(models.Model):
     @staticmethod
     def get_customer_by_id(id):
         return Customer.objects.filter(id=id)
+
+
+class Gallery(models.Model):
+    name = models.CharField(max_length=50)
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
+
+
+class UploadImages(models.Model):
+    gallery_name = models.ForeignKey(Gallery, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='Gallery')
